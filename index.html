@@ -137,6 +137,7 @@
             messages.insertBefore(message, messages.lastElementChild);
           });
         });
+
         // Submit Message
         messageForm.addEventListener("submit", (e) => {
           e.preventDefault();
@@ -144,6 +145,7 @@
           document.querySelector("textarea").value = "";
           socket.emit("chat message", msg);
         });
+
         // Add message to card
         socket.on("output", (data) => {
           let message = document.createElement("h6");
