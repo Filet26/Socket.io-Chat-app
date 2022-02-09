@@ -1,7 +1,11 @@
 const express = require("express");
+const { isObject } = require("util");
 const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")().listen(server).sockets;
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
